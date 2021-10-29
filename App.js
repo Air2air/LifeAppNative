@@ -21,6 +21,16 @@ export default function App() {
     { text: "play on the switch", key: 3 },
   ]);
 
+
+  const [content, setContent] = useState([
+    { text: "buy coffee", key: 1 },
+    { text: "create an app", key: 2 },
+    { text: "play on the switch", key: 3 },
+  ]);
+
+
+
+
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
       return prevTodos.filter((todo) => todo.key != key);
@@ -47,7 +57,10 @@ export default function App() {
   return (
     // <Sandbox />
 
+    <>
+<Header />
 <Flow />
+</>
 
 
     // <TouchableWithoutFeedback

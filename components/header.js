@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+const myIcon = <Icon name="rocket" size={30} color="#900" />;
 
 export default function Header({ navigation }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,10 +36,10 @@ export default function Header({ navigation }) {
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={toggleDrawer}>
-        <Text style={styles.menu}>{isOpen ? "Close" : "Menu"}</Text>
+      <TouchableOpacity>
+      <Text style={styles.title}>Home</Text>
       </TouchableOpacity>
-      <Text style={styles.title}>{selected || "Home"}</Text>
+      <Icon name="rocket" size={30} color="#900" />
     </View>
   );
 }
@@ -47,11 +49,11 @@ const styles = StyleSheet.create({
   header: {
     height: 80,
     paddingTop:38,
-    backgroundColor: "coral",
+    backgroundColor: 'rgba(255,255,255,0)',
   },
   title: {
     textAlign: "center",
-    color: "#fff",
+    color: "#ddd",
     fontSize: 20,
     fontWeight: "bold",
   },
