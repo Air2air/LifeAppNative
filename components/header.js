@@ -1,21 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
-const myIcon = <Icon name="rocket" size={30} color="#900" />;
+import { Button, View, TouchableOpacity, StyleSheet } from "react-native";
+import IconSmile from "react-native-vector-icons/Feather";
+import IconScore from "react-native-vector-icons/MaterialIcons";
 
 export default function Header({ navigation }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("");
-
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const onPressItem = (item) => {
-    setSelected(item);
-    setIsOpen(false);
-  };
-
   const menuItems = [
     {
       name: "Home",
@@ -34,27 +22,29 @@ export default function Header({ navigation }) {
     },
   ];
 
+
+
+
   return (
     <View style={styles.header}>
-      <TouchableOpacity>
-      <Text style={styles.title}>Home</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <IconScore name="bubble-chart" size={60} color="#FFF" />
       </TouchableOpacity>
-      <Icon name="rocket" size={30} color="#900" />
+      <TouchableOpacity>
+        <IconSmile name="smile" size={60} color="#FFF" />
+      </TouchableOpacity>
     </View>
   );
 }
 
-// create styles for header component   //
 const styles = StyleSheet.create({
   header: {
-    height: 80,
-    paddingTop:38,
-    backgroundColor: 'rgba(255,255,255,0)',
-  },
-  title: {
-    textAlign: "center",
-    color: "#ddd",
-    fontSize: 20,
-    fontWeight: "bold",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    height: 100,
+    paddingTop: 20,
+    backgroundColor: "rgba(100,155,155,1)",
   },
 });

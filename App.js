@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 import Header from "./components/header";
 import TodoItem from "./components/todoitem";
 import AddTodo from "./components/addtodo";
@@ -21,15 +22,11 @@ export default function App() {
     { text: "play on the switch", key: 3 },
   ]);
 
-
   const [content, setContent] = useState([
     { text: "buy coffee", key: 1 },
     { text: "create an app", key: 2 },
     { text: "play on the switch", key: 3 },
   ]);
-
-
-
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
@@ -58,10 +55,11 @@ export default function App() {
     // <Sandbox />
 
     <>
-<Header />
-<Flow />
-</>
-
+    <NavigationContainer>
+      <Header />
+      <Flow />
+      </NavigationContainer>
+    </>
 
     // <TouchableWithoutFeedback
     //   onPress={() => {
@@ -91,6 +89,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    //position: "relative",
     flex: 1,
     backgroundColor: "#fff",
     paddingTop: 50,
